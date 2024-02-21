@@ -10,17 +10,17 @@
     <body>
         <div class="container">
         <div class="registration form">
-            <header><strong>Signup</strong></header>
+            <header><h2>Signup</h2></header>
             <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
-            <div style="margin-top: 10px;">
+            <div style="margin-top: 15px;">
                     <p>Public Visibility:</p>
                 </div>
             <label class="toggle">
-                <input type="radio" name="public_visibility" value="True" required> YES
+                <input type="radio" name="public_visibility" value="True" required> Yes
             </label>
             <label class="toggle">
-                <input type="radio" name="public_visibility" value="False" required> NO
+                <input type="radio" name="public_visibility" value="False" required> No
             </label>
                 <input type="text" placeholder="Enter your first name*" name="first_name">
                 <input type="text" placeholder="Enter your last name" name="last_name">
