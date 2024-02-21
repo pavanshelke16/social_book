@@ -5,14 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
             <link rel="stylesheet"  href="static/new.css">
-        
+    
+
     <body>
         <div class="container">
         <div class="registration form">
-            <header>Signup</header>
+            <header><strong>Signup</strong></header>
             <form action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
-                <input type="text" placeholder="Enter your first name" name="first_name">
+            <div style="margin-top: 10px;"> <!-- Added margin-bottom for spacing -->
+                    <p>Public Visibility:</p>
+                </div>
+            <label class="toggle">
+                <input type="radio" name="public_visibility" value="True" required> YES
+            </label>
+            <label class="toggle">
+                <input type="radio" name="public_visibility" value="False" required> NO
+            </label>
+                <input type="text" placeholder="Enter your first name*" name="first_name">
                 <input type="text" placeholder="Enter your last name" name="last_name">
                 <input type="number" placeholder="Enter your birth year" name="birth_year">
                 <input type="text" placeholder="Enter your address" name="address">
@@ -36,3 +46,5 @@
         </div>
     </body>
     </html>
+
+    

@@ -8,11 +8,12 @@ class RegisterForm(UserCreationForm):
     last_name = forms.CharField(max_length=100, required=True)
     address = forms.CharField(max_length=255, required=True)
     birth_year = forms.IntegerField(required=True)
+    public_visibility = forms.BooleanField(initial=True, required=False)
 
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email', 'address', 'birth_year', 'password1', 'password2')
-    
+        fields = ('first_name', 'last_name', 'email', 'address', 'birth_year', 'public_visibility', 'password1', 'password2')
+
     def save(self, commit=True):
         user = super(RegisterForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
@@ -21,8 +22,9 @@ class RegisterForm(UserCreationForm):
         user.last_name = self.cleaned_data['last_name']
         user.address = self.cleaned_data['address']
         user.birth_year = self.cleaned_data['birth_year']
+        user.public_visibility = self.cleaned_data['public_visibility']
 
         if commit:
             user.save()
-        
+
         return user

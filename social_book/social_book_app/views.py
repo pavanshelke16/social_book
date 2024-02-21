@@ -28,7 +28,7 @@ def login_view(request):
 
     return render(request, 'login.html')
 
-@login_required
+@   login_required
 def dashboard(request):
     return render(request, 'dashboard.html', {'name': request.user.first_name})
 
