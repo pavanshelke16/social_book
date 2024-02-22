@@ -7,7 +7,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'new.css' %}">
 
     </head>
@@ -15,7 +14,7 @@
     <body>
         <div class="container">
             <div class="login form">
-                <header>Login</header>
+                <header><h2>Login</h2></header>
                 <form action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
                     <input type="text" placeholder="Enter your email" name="email">
