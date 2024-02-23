@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Authors and Sellers</title>
+        <link rel="stylesheet" href="{% static 'new.css' %}">
+        <style>
+            body{
+                background-color: #f7f5f5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Authors and Sellers:</h2>
+            <ol>
+                {% for user in users %}
+                <li style="font-family: 'Courier New', Courier, monospace;"><strong>{{ user.first_name }} {{ user.last_name }}  [{{ user.address }}]</strong></li>
+                {% endfor %}
+            </ol>
+        </div>
+        
+    </body>
+
+</html>

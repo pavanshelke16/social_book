@@ -17,6 +17,6 @@ class UserAdmin(BaseUserAdmin):
     )
     list_display = ('email', 'first_name', 'last_name', 'age', 'birth_year', 'address', 'public_visibility', 'is_staff')
     search_fields = ('email', 'first_name', 'last_name')
-    ordering = ('email',)
 
 admin.site.register(CustomUser, UserAdmin)
+            

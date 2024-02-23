@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from social_book_app.models import CustomUser
+from .models import UploadedFile
+
+
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -28,3 +31,20 @@ class RegisterForm(UserCreationForm):
             user.save()
 
         return user
+
+
+class UploadedFileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(UploadedFileForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = UploadedFile
+        fields = ['title', 'description', 'file', 'visibility', 'cost', 'year_published']
+
+    def save(self, commit=True):
+        uploaded_file = super().save(commit=False)
+        uploaded_file.user = self.user
+        if commit:
+            uploaded_file.save()
+        return uploaded_file

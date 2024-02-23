@@ -1,16 +1,65 @@
+{% extends "dummy.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dashboard</title>
-</head>
-<body>
-  <div class="dashboard">
-    <h1>Dashboard</h1>
-    <h3>Welcome, {{ name }}!</h3>
+<
+
+  
+
+{% block head %}
+<style>
+  .test {
+  display: flex;
+  flex-direction: row;
+  
+.card {
+border: 1px solid #dadada;
+box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+transition: 0.2s;
+width: 50%;
+}
+
+  }
+</style>
+  
+{% endblock head %}
+
+ 
+ 
+
+{% block body %}
+
+<div class="test">
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Authors and sellers</h5>
+    <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+    <p class="card-text">This will show the users who ticked yes for profile visibility!</p>
+    <a href="{% url 'authors_and_sellers' %}" class="card-link" style="color: #4caf50; text-decoration:none;">LIST</a>
   </div>
-</body>
-</html>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Upload Books</h5>
+    <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+    <p class="card-text">This will allow you to upload book in the pdf and jpeg formats!</p>
+    <a href="{% url 'upload_books' %}" class="card-link" style="color: #4caf50; text-decoration:none;">UPLOAD</a>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Uploaded Books</h5>
+    <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
+    <p class="card-text">This will allow you to uploaded books by you!</p>
+    <a href="{% url 'uploaded_books' %}" class="card-link" style="color: #4caf50; text-decoration:none;">VIEW</a>
+  </div>
+</div>
+</div>
+{% endblock body %}
+
+
+
+
+
+<!-- visibility as check box shuold be in one line -->
